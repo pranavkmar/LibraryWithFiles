@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LibrarywithFiles</string>
+    <string name="book_name_select">Select A Book</string>
+    <string-array name="bookNames">
+        <item> Select A Book </item>
+        <item> JAVA TextBook</item>
+        <item> C TextBooks</item>
+        <item>Python TextBook </item>
+        <item> .NET Books</item>
+
+    </string-array>
+</resources>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+**
+**     http://www.apache.org/licenses/LICENSE-2.0 
+**
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+*/
+-->
+<timezones>
+    <!-- ANDORRA, 1:00 -->
+
+    <timezone code="ad">Europe/Andorra</timezone>
+
+    <!-- UNITED ARAB EMIRATES, 4:00 -->
+
+    <timezone code="ae">Asia/Dubai</timezone>
+
+    <!-- AFGHANISTAN, 4:30 -->
+
+    <timezone code="af">Asia/Kabul</timezone>
+
+    <!-- ANTIGUA AND BARBUDA, -4:00 -->
+
+    <timezone code="ag">America/Antigua</timezone>
+
+    <!-- ANGUILLA, -4:00 -->
+
+    <timezone code="ai">America/Anguilla</timezone>
+
+    <!-- ALBANIA, 1:00 -->
+
+    <timezone code="al">Europe/Tirane</timezone>
+
+    <!-- ARMENIA, 4:00 -->
+
+    <timezone code="am">Asia/Yerevan</timezone>
+
+    <!-- NETHERLANDS ANTILLES, -4:00 -->
+
+    <timezone code="an">America/Curacao</timezone>
+
+    <!-- ANGOLA, 1:00 -->
+
+    <timezone code="ao">Africa/Luanda</timezone>
+
+    <!-- ANTARCTICA, 12:00 -->
+
+    <timezone code="aq">Antarctica/McMurdo</timezone>
+    <timezone code="aq">Antarctica/South_Pole</timezone>
+
+    <!-- ANTARCTICA, 10:00 -->
+
+    <timezone code="aq">Antarctica/DumontDUrville</timezone>
+
+    <!-- ANTARCTICA, 8:00 -->
+
+    <timezone code="aq">Antarctica/Casey</timezone>
+
+    <!-- ANTARCTICA, 7:00 -->
+
+    <timezone code="aq">Antarctica/Davis</timezone>
+
+    <!-- ANTARCTICA, 6:00 -->
+
+    <timezone code="aq">Antarctica/Mawson</timezone>
+    <timezone code="aq">Antarctica/Vostok</timezone>
+
+    <!-- ANTARCTICA, 3:00 -->
+
+    <timezone code="aq">Antarctica/Syowa</timezone>
+
+    <!-- ANTARCTICA, -3:00 -->
+
+    <timezone code="aq">Antarctica/Rothera</timezone>
+
+    <!-- ANTARCTICA, -4:00 -->
+
+    <timezone code="aq">Antarctica/Palmer</timezone>
+
+    <!-- ARGENTINA, -3:00 -->
+
+    <timezone code="ar">America/Argentina/Buenos_Aires</timezone>
+    <timezone code="ar">America/Argentina/Cordoba</timezone>
+    <timezone code="ar">America/Argentina/Jujuy</timezone>
+    <timezone code="ar">America/Argentina/Tucuman</timezone>
+    <timezone code="ar">America/Argentina/Catamarca</timezone>
+    <timezone code="ar">America/Argentina/La_Rioja</timezone>
+    <timezone code="ar">America/Argentina/San_Juan</timezone>
+    <timezone code="ar">America/Argentina/Mendoza</timezone>
+    <timezone code="ar">America/Argentina/Rio_Gallegos</timezone>
+    <timezone code="ar">America/Argentina/Ushuaia</timezone>
+
+    <!-- AMERICAN SAMOA, -11:00 -->
+
+    <timezone code="as">Pacific/Pago_Pago</timezone>
+
+    <!-- AUSTRIA, 1:00 -->
+
+    <timezone code="at">Europe/Vienna</timezone>
+
+    <!-- AUSTRALIA, 10:00 -->
+
+    <timezone code="au">Australia/Sydney</timezone>
+    <timezone code="au">Australia/Melbourne</timezone>
+    <timezone code="au">Australia/Brisbane</timezone>
+    <timezone code="au">Australia/Hobart</timezone>
+    <timezone code="au">Australia/Currie</timezone>
+    <timezone code="au">Australia/Lindeman</timezone>
+
+    <!-- AUSTRALIA, 10:30 -->
+
+    <timezone code="au">Australia/Lord_Howe</timezone>
+
+    <!-- AUSTRALIA, 9:30 -->
+
+    <timezone code="au">Australia/Adelaide</timezone>
+    <timezone code="au">Australia/Broken_Hill</timezone>
+    <timezone code="au">Australia/Darwin</timezone>
+
+    <!-- AUSTRALIA, 8:00 -->
+
+    <timezone code="au">Australia/Perth</timezone>
+
+    <!-- AUSTRALIA, 8:45 -->
+
+    <timezone code="au">Australia/Eucla</timezone>
+
+    <!-- ARUBA, -4:00 -->
+
+    <timezone code="aw">America/Aruba</timezone>
+
+    <!-- ALAND ISLANDS, 2:00 -->
+
+    <timezone code="ax">Europe/Mariehamn</timezone>
+
+    <!-- AZERBAIJAN, 4:00 -->
+
+    <timezone code="az">Asia/Baku</timezone>
+
+    <!-- BOSNIA AND HERZEGOVINA, 1:00 -->
+
+    <timezone code="ba">Europe/Sarajevo</timezone>
+
+    <!-- BARBADOS, -4:00 -->
+
+    <timezone code="bb">America/Barbados</timezone>
+
+    <!-- BANGLADESH, 6:00 -->
+
+    <timezone code="bd">Asia/Dhaka</timezone>
+
+    <!-- BELGIUM, 1:00 -->
+
+    <timezone code="be">Europe/Brussels</timezone>
+
+    <!-- BURKINA FASO, 0:00 -->
+
+    <timezone code="bf">Africa/Ouagadougou</timezone>
+
+    <!-- BULGARIA, 2:00 -->
+
+    <timezone code="bg">Europe/Sofia</timezone>
+
+    <!-- BAHRAIN, 3:00 -->
+
+    <timezone code="bh">Asia/Bahrain</timezone>
+
+    <!-- BURUNDI, 2:00 -->
+
+    <timezone code="bi">Africa/Bujumbura</timezone>
+
+    <!-- BENIN, 1:00 -->
+
+    <timezone code="bj">Africa/Porto-Novo</timezone>
+
+    <!-- BERMUDA, -4:00 -->
+
+    <timezone code="bm">Atlantic/Bermuda</timezone>
+
+    <!-- BRUNEI DARUSSALAM, 8:00 -->
+
+    <timezone code="bn">Asia/Brunei</timezone>
+
+    <!-- BOLIVIA, -4:00 -->
+
+    <timezone code="bo">America/La_Paz</timezone>
+
+    <!-- BRAZIL, -2:00 -->
+
+    <timezone code="br">America/Noronha</timezone>
+
+    <!-- BRAZIL, -3:00 -->
+
+    <timezone code="br">America/Sao_Paulo</timezone>
+    <timezone code="br">America/Belem</timezone>
+    <timezone code="br">America/Fortaleza</timezone>
+    <timezone code="br">America/Recife</timezone>
+    <timezone code="br">America/Araguaina</timezone>
+    <timezone code="br">America/Maceio</timezone>
+    <timezone code="br">America/Bahia</timezone>
+
+    <!-- BRAZIL, -4:00 -->
+
+    <timezone code="br">America/Manaus</timezone>
+    <timezone code="br">America/Campo_Grande</timezone>
+    <timezone code="br">America/Cuiaba</timezone>
+    <timezone code="br">America/Porto_Velho</timezone>
+    <timezone code="br">America/Boa_Vista</timezone>
+    <timezone code="br">America/Eirunepe</timezone>
+    <timezone code="br">America/Rio_Branco</timezone>
+
+    <!-- BAHAMAS, -5:00 -->
+
+    <timezone code="bs">America/Nassau</timezone>
+
+    <!-- BHUTAN, 6:00 -->
+
+    <timezone code="bt">Asia/Thimphu</timezone>
+
+    <!-- BOTSWANA, 2:00 -->
+
+    <timezone code="bw">Africa/Gaborone</timezone>
+
+    <!-- BELARUS, 2:00 -->
+
+    <timezone code="by">Europe/Minsk</timezone>
+
+    <!-- BELIZE, -6:00 -->
+
+    <timezone code="bz">America/Belize</timezone>
+
+    <!-- CANADA, -3:30 -->
+
+    <timezone code="ca">America/St_Johns</timezone>
+
+    <!-- CANADA, -4:00 -->
+
+    <timezone code="ca">America/Halifax</timezone>
+    <timezone code="ca">America/Glace_Bay</timezone>
+    <timezone code="ca">America/Moncton</timezone>
+    <timezone code="ca">America/Goose_Bay</timezone>
+    <timezone code="ca">America/Blanc-Sablon</timezone>
+
+    <!-- CANADA, -5:00 -->
+
+    <timezone code="ca">America/Toronto</timezone>
+    <timezone code="ca">America/Montreal</timezone>
+    <timezone code="ca">America/Nipigon</timezone>
+ 

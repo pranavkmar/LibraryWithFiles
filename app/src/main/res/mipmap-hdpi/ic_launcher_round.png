@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2012, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<!-- Regex patterns for SMS short codes by country. -->
+<shortcodes>
+
+    <!-- The country attribute is the ISO country code of the user's account (from SIM card or NV).
+         The pattern attribute is a regex that matches all SMS short codes for the country.
+         The premium attribute is a regex that matches premium rate SMS short codes.
+         The free attribute matches short codes that we know will not cost the user, such as
+         emergency numbers. The standard attribute matches short codes that are billed at the
+         standard SMS rate. The user is warned when the destination phone number matches the
+         "pattern" or "premium" regexes, and does not match the "free" or "standard" regexes. -->
+
+    <!-- Harmonised European Short Codes are 6 digit numbers starting with 116 (free helplines).
+         Premium patterns include short codes from: http://aonebill.com/coverage&tariffs
+         and http://mobilcent.com/info-worldwide.asp and extracted from:
+         http://smscoin.net/software/engine/WordPress/Paid+SMS-registration/ -->
+
+    <!-- Arab Emirates -->
+    <shortcode country="ae" free="3214|1017" />
+
+    <!-- Albania: 5 digits, known short codes listed -->
+    <shortcode country="al" pattern="\\d{5}" premium="15191|55[56]00" />
+
+    <!-- Armenia: 3-4 digits, emergency numbers 10[123] -->
+    <shortcode country="am" pattern="\\d{3,4}" premium="11[2456]1|3024" free="10[123]" />
+
+    <!-- Austria: 10 digits, premium prefix 09xx, plus EU -->
+    <shortcode country="at" pattern="11\\d{4}" premium="09.*" free="116\\d{3}" />
+
+    <!-- Australia: 6 or 8 digits starting with "19" -->
+    <shortcode country="au" pattern="19(?:\\d{4}|\\d{6})" premium="19998882|19944444" />
+
+    <!-- Azerbaijan: 4-5 digits, known premium codes listed -->
+    <shortcode country="az" pattern="\\d{4,5}" premium="330[12]|87744|901[234]|93(?:94|101)|9426|9525" />
+
+    <!-- Belgium: 4 digits, plus EU: http://www.mobileweb.be/en/mobileweb/sms-numberplan.asp -->
+    <shortcode country="be" premium="\\d{4}" free="8\\d{3}|116\\d{3}" />
+
+    <!-- Bulgaria: 4-5 digits, plus EU -->
+    <shortcode country="bg" pattern="\\d{4,5}" premium="18(?:16|423)|19(?:1[56]|35)" free="116\\d{3}" />
+
+    <!-- Belarus: 4 digits -->
+    <shortcode country="by" pattern="\\d{4}" premium="3336|4161|444[4689]|501[34]|7781" />
+
+    <!-- Canada: 5-6 digits -->
+    <shortcode country="ca" pattern="\\d{5,6}" premium="60999|88188|43030" />
+
+    <!-- Switzerland: 3-5 digits: http://www.swisscom.ch/fxres/kmu/thirdpartybusiness_code_of_conduct_en.pdf -->
+    <shortcode country="ch" pattern="[2-9]\\d{2,4}" premium="543|83111|30118" />
+
+    <!-- China: premium shortcodes start with "1066", free shortcodes start with "1065":
+         http://clients.txtnation.com/entries/197192-china-premium-sms-short-code-requirements -->
+    <shortcode country="cn" premium="1066.*" free="1065.*" />
+
+    <!-- Cyprus: 4-6 digits (not confirmed), known premium codes listed, plus EU -->
+    <shortcode country="cy" pattern="\\d{4,6}" premium="7510" free="116\\d{3}" />
+
+    <!-- Czech Republic: 7-8 digits, starting with 9, plus EU:
+         http://www.o2.cz/osobni/en/services-by-alphabet/91670-premium_sms.html -->
+    <shortcode country="cz" premium="9\\d{6,7}" free="116\\d{3}" />
+
+    <!-- Germany: 4-5 digits plus 1232xxx (premium codes from http://www.vodafone.de/infofaxe/537.pdf and http://premiumdienste.eplus.de/pdf/kodex.pdf), plus EU. To keep the premium regex from being too large, it only includes payment processors that have been used by SMS malware, with the regular pattern matching the other premium short codes. -->
+    <shortcode country="de" pattern="\\d{4,5}|1232\\d{3}" premium="11(?:111|833)|1232(?:013|021|060|075|286|358)|118(?:44|80|86)|20[25]00|220(?:21|22|88|99)|221(?:14|21)|223(?:44|53|77)|224[13]0|225(?:20|59|90)|226(?:06|10|20|26|30|40|56|70)|227(?:07|33|39|66|76|78|79|88|99)|228(?:08|11|66|77)|23300|30030|3[12347]000|330(?:33|55|66)|33(?:233|331|366|533)|34(?:34|567)|37000|40(?:040|123|444|[3568]00)|41(?:010|414)|44(?:000|044|344|44[24]|544)|50005|50100|50123|50555|51000|52(?:255|783)|54(?:100|2542)|55(?:077|[24]00|222|333|55|[12369]55)|56(?:789|886)|60800|6[13]000|66(?:[12348]66|566|766|777|88|999)|68888|70(?:
