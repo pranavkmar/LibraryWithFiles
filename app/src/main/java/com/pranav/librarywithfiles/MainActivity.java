@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -30,14 +34,26 @@ public class MainActivity extends AppCompatActivity {
     File myExternalFile;
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
+    protected EditText SName = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       SName = (EditText) findViewById(R.id.editTextSName);
         Button issueBtn, returnBtn;
         issueBtn = (Button) findViewById(R.id.BtnIssue);
         returnBtn = (Button) findViewById(R.id.BtnReturn);
+        // if not able to write to external storage, disable buttons
+        if (!isExternalStorageWritable() && isExternalStorageReadable()) {
+            issueBtn.setEnabled(false);
+            returnBtn.setEnabled(false);
+
+        }
+
+
+        myExternalFile = getDocumentDir(filename);
+
         TextView msgtv = (TextView) findViewById(R.id.tvmsg);
 
         spinner = (Spinner) findViewById(R.id.spinner_BookList);
@@ -58,12 +74,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // if not able to write to external storage, disable buttons
-        if (!isExternalStorageWritable() && isExternalStorageReadable()) {
-            issueBtn.setEnabled(false);
-            returnBtn.setEnabled(false);
+
+        if (!SName.getText().toString().equals("null")) {
+            final String snameET = SName.getText().toString();
+
+
+            issueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    String bookname = spinner.getSelectedItem().toString();
+                    String stat = getstatus(bookname);
+                    //Toast.makeText(getApplicationContext(),"Button clicked",Toast.LENGTH_SHORT).show();
+                    if (stat.equals("i")) {
+                        //       Toast.makeText(this,"Saved to"+getFilesDir()+"/"+"file.txt",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Isseued already", Toast.LENGTH_SHORT).show();
+                    } else {
+                        writerec(snameET, bookname, "i");
+                    }
+                }
+            });
+
+            returnBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String b = spinner.getSelectedItem().toString();
+                    WriteExternalOnClick(snameET, b, "r");
+                    Toast.makeText(getApplicationContext(), "Returned", Toast.LENGTH_SHORT).show();
+                }
+            });
 
         }
+
+
+    }
+
+    public void writerec(String name, String book, String status) {
+        try {
+//            FileWriter fw = new FileWriter("file.txt", true);
+            FileWriter fw = new FileWriter(myExternalFile, true);
+
+            fw.write(name + "\t" + book + "\t" + status);
+            fw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void WriteExternalOnClick(String sname,String book, String status) {
+        String data = SName.getText().toString()+", "+book+","+status+"\n";
+
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
@@ -71,12 +131,14 @@ public class MainActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     12);
         }
-
-        myExternalFile = getDocumentDir("temp.txt");
-
-
+        try {
+            outputStream = new FileOutputStream(myExternalFile);
+            outputStream.write(data.getBytes());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -86,6 +148,8 @@ public class MainActivity extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // do something
+
+//                    requestGranted=true;
                 } else {
                     // not granted
                     Toast.makeText(this, "We require Storage permission to write on a Text File", Toast.LENGTH_SHORT).show();
@@ -95,17 +159,39 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void ReadExternalOnClick(View view) {
         try {
             InputStream instream = new FileInputStream(myExternalFile);
-            ReadData(instream);
+            SendData(instream);
 
         } catch (java.io.FileNotFoundException e) {
             Toast.makeText(this, "File NOT FOUND", Toast.LENGTH_SHORT).show();
             // do something if the filename does not exits
         }
     }
+
+
+//    LaxDrg
+
+    public String getstatus(String book) {
+        String status = "r";
+        try {
+            FileReader fr = new FileReader("temp.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                String arr[] = line.split("\t");
+                if (arr[1].equals(book)) {
+                    status = arr[0];
+                }
+            }
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
 
     public void DeleteExternalOnClick(View view) {
         myExternalFile.delete();
@@ -143,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public void ReadData(InputStream instream) {
+    public void SendData(InputStream instream) {
         try {
             InputStreamReader inputreader = new InputStreamReader(instream);
             TextView msgtvRD = (TextView) findViewById(R.id.tvmsg);
