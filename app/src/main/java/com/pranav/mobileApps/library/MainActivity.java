@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -78,11 +79,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String bookname = (String) spinner.getSelectedItem().toString();
                 String[] state = getStatus(bookname);
 
-
+                String edittextStr = etuname.getText().toString();
 //                if (state[2].compareTo("I")==0) {
-                if (Arrays.asList(state).contains("I")) {
+                if (edittextStr.equals("")){
+                    Toast.makeText(getApplicationContext(), "BOOK CANNOT BE ISSUED TO UNKNOWN, Enter Name " , Toast.LENGTH_LONG).show();
+
+
+                }
+                else if (Arrays.asList(state).contains("I")) {
                     Toast.makeText(getApplicationContext(), "BOOK ALREADY ISSUED TO " + " \"" + state[0] + "\" ", Toast.LENGTH_LONG).show();
-                } else {
+                }
+                else{
                     writeRecord(etuname.getText().toString(), bookname, "I");
                 }
             }
@@ -93,10 +100,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 String bookname = (String) spinner.getSelectedItem();
                 String[] state = getStatus(bookname);
-                if (Arrays.asList(state).contains("I")) {
+                if ((Arrays.asList(state).contains("I")) && (Arrays.asList(state).contains(etuname.getText().toString()))) {
                     writeRecord(etuname.getText().toString(), bookname, "R");
                     Toast.makeText(getApplicationContext(), "BOOK \"" + state[1] + " IS RETURNED BY \"" + state[0] + "\" AND Log Updated at \"" + Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Documents" + File.separator + filename + " \"", Toast.LENGTH_LONG).show();
-                } else {
+                }
+
+                else if( ((Arrays.asList(state).contains("I")) && ( Arrays.asList(state).contains(etuname.getText().toString())))== false){
+                    Toast retToas = Toast.makeText(getApplicationContext(), "BOOK IS NOT POSSIBLE TO RETURN ,AS IT IS ISSUED TO SOMEONE ELSE ", Toast.LENGTH_LONG);
+                    View retToastView = retToas.getView();
+                    retToastView.setPadding(8, 2, 2, 8);
+                    retToastView.setBackgroundResource(R.color.red);
+
+                    retToas.show();
+
+                }
+
+                    else {
                     Toast retToast = Toast.makeText(getApplicationContext(), "BOOK IS NOT POSSIBLE TO RETURN ,AS IT IS NOT YET ISSUED ", Toast.LENGTH_LONG);
                     View retToastView = retToast.getView();
                     retToastView.setPadding(8, 2, 2, 8);
